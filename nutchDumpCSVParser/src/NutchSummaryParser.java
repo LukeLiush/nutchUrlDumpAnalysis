@@ -61,7 +61,8 @@ public class NutchSummaryParser extends TXTParser {
 						ServiceLoader.class, LOADER));
 		try {
 			Charset charset = reader.getCharset();
-			MediaType type = new MediaType(MediaType.TEXT_PLAIN, charset);
+			//MediaType type = new MediaType(MediaType.TEXT_PLAIN, charset);
+			MediaType type = new MediaType(MediaType.application("json"), charset);
 			metadata.set(Metadata.CONTENT_TYPE, type.toString());
 			// deprecated, see TIKA-431
 			metadata.set(Metadata.CONTENT_ENCODING, charset.name());
