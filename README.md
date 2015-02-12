@@ -1,18 +1,18 @@
 # nutchUrlDumpAnalysis
 
-The java program aims to provide extract the information from the Nutch url dump, and convert them form csv outputed from nutch to JSON format.
-and The analysis is that we simply count the number of occurances for each url category.
-The following is the definition of url categories in this program and note this program aims to provide the support to analyse crawled data in the project NSF polar scietifc.
+The java program aims to xtract the information from the Nutch url dump, and convert them form csv outputed from nutch to JSON format.
+and we simply count the number of occurances for each url category.
+note this program aims to provide the support to analyse the crawled data in the project NSF polar scietifc.
 https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon/issues/1 
 
 Because there are many urls crawled and that reference the pages dynamically generated, it is probably better we group those based on the portion that comes before the "?";
-The java program read the nutch dump produced in CSV format, and compute the count of occurances for categories.
+The java program read the nutch dump file produced in CSV format, and compute the count of occurances for the url categories.
 
-1st, generate the url dump file with the following cmd.
+1st, generate the url dump file with the following cmd in the nutch machine.
 
-./nutch readdb [crawldb] -dump [output_path] -format csv 
+./<nutch_home>/runtime/local/bin/nutch readdb [crawldb] -dump [output_path] -format csv 
 
-pass the dump file to the java program, the java program automatically compute the count of occurances for each categories and output them in json format.
+pass the dump file to the java program, the java program automatically compute the count of occurances for each categories and output them in json format. The following shows a snippet of the resultant json file.
 
 {
     "unfetched_categories": [
@@ -35,8 +35,8 @@ pass the dump file to the java program, the java program automatically compute t
         ]
 }
 
-This json file produced by the java program is then input to the R program for visualization.
-The R program is a simple program to quickly visualize the data in pie chart and to give a quick feel with the data. 
+This json file produced by the java program is then the input to the R program for visualization.
+The R program is a simple program that quickly visualizes the data in pie chart.
 
 With a pie chart, it might be easier to see what are the major categories that nutch fails to fetch.
 
