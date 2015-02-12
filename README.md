@@ -44,13 +44,23 @@ Notice, the program aims to analyse the unfetched urls in the dump.
 
 How to Run:
 Java
-Java program main, NutchDumpSummaryMain
+main: NutchDumpSummaryMain.class
+2 parameters (currently not configurable): 
+        #1: nutchCSVDumpPath: specifies the location of csv dump file
+		#2: summaryOutputPath: specifies the location of the json output file.
 Dependencies: Tika 1.6
 
 
 R
 Dependencies: library(rjson)
-
+main:processJson.R
+    source('processJson.R')
+    displayPie('acadis.json',3)
+    # there 3 parameters for displayPie
+        #1: file: indicate the location of the json file to be displayed in pie
+        #2: countThreshold: control which categories need to be shown based on the count, if setting the threshold =3 (by default it is 10), those categories that do have a count of 10 will be shown in the pie. Usually there are lots of url that only have count 1 which make it difficult to show them all in the pie, it is sometimes better to visualize the the majority of the group that nutch fails to fetch.
+        #3: main, this specifies the title or description of the pie.
+    
 
 
 
