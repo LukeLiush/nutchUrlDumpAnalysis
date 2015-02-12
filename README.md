@@ -35,10 +35,10 @@ pass the dump file to the java program, the java program automatically compute t
         ]
 }
 
-This json file produced by the java program is the then input to the R for visualization.
-The R program is simple program to quickly visualize the data in pie chart and to give a quick feel with the data.
+This json file produced by the java program is then input to the R program for visualization.
+The R program is a simple program to quickly visualize the data in pie chart and to give a quick feel with the data. 
 
-With the pie chart, it might be easier to see what are the major categories that nutch fails to fetch.
+With a pie chart, it might be easier to see what are the major categories that nutch fails to fetch.
 
 Notice, the program aims to analyse the unfetched urls in the dump.
 
