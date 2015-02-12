@@ -27,8 +27,8 @@ public class NutchDumpSummaryMain {
 		InputStream in_stream;
 		try {
 			//ToHTMLContentHandler
-			ToHTMLContentHandler handler = new ToHTMLContentHandler(new FileOutputStream(outputPath), "UTF-8");
-			//NutchDumpToJSonHandler handler = new NutchDumpToJSonHandler(new FileOutputStream(outputPath), "UTF-8");
+			//ToHTMLContentHandler handler = new ToHTMLContentHandler(new FileOutputStream(outputPath), "UTF-8");
+			NutchDumpToJSonHandler handler = new NutchDumpToJSonHandler(new FileOutputStream(outputPath), "UTF-8");
 			in_stream = TikaInputStream.get(csvDumpPath, metadata);
 			par.parse(in_stream, handler, metadata, context);
 
