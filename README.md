@@ -8,7 +8,7 @@ https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon/issues/1
 There are many urls crawled and that reference the pages dynamically generated, it is probably better we group those based on the portion that comes before the "?"; 
 The java program read the nutch dump file produced in CSV format, and compute the count of occurances for the url categories.
 
-<h>1st, generate the url dump file with the following cmd in the nutch machine.</h>
+##1st, generate the url dump file with the following cmd in the nutch machine.
 
 ./<nutch_home>/runtime/local/bin/nutch readdb [crawldb] -dump [output_path] -format csv 
 
