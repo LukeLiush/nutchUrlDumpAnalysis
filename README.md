@@ -1,11 +1,11 @@
 # nutchUrlDumpAnalysis
 
-The java program aims to xtract the information from the Nutch url dump, and convert them form csv outputed from nutch to JSON format.
+The java program aims to extract the information from the Nutch url dump, and convert them form csv outputed from nutch to JSON format.
 and we simply count the number of occurances for each url category.
-note this program aims to provide the support to analyse the crawled data in the project NSF polar scietifc.
+note this program aims to provide the support to analyse the crawled data in the project NSF polar research.
 https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon/issues/1 
 
-Because there are many urls crawled and that reference the pages dynamically generated, it is probably better we group those based on the portion that comes before the "?";
+There are many urls crawled and that reference the pages dynamically generated, it is probably better we group those based on the portion that comes before the "?"; 
 The java program read the nutch dump file produced in CSV format, and compute the count of occurances for the url categories.
 
 1st, generate the url dump file with the following cmd in the nutch machine.
@@ -34,9 +34,22 @@ pass the dump file to the java program, the java program automatically compute t
         ...
         ]
 }
+Technically, 
+The java program extract the entries associated with "db_fetched" i.e. status code = 1, and there are two main types of urls i.e.
+1) dynamic urls reference dynamic pages (those urls all have "?" inside them)
+The following is an example.
+http://gcmd.gsfc.nasa.gov/KeywordSearch/Home.do?Portal=amd_cl&MetadataType=0&lbnode=mdlb3
+The program groups and clusters by looking at the portion before the "?" and count those urls that have the same "url portion", the portion after "?" will be refered to as a application portion. The following is an example of the url portion which you will be seeing in the produced json.
+http://gcmd.gsfc.nasa.gov/KeywordSearch/Home.do? 
+2) static urls reference static pages (those urls that do not have "?")
+e.g. the following is an example.
+http://gcmd.gsfc.nasa.gov/KeywordSearch/ipy/images/header.gif
+For those urls, the program will take the portion before the last "/" as the url portion and group those that have the same url portion. e.g. the above url has the following url portion and count is computed based on those that have the same portion as follows.
+http://gcmd.gsfc.nasa.gov/KeywordSearch/ipy/images/
+
 
 This json file produced by the java program is then the input to the R program for visualization.
-The R program is a simple program that quickly visualizes the data in pie chart.
+The R program has many useful builtin functions, and as an example, a simple R program that quickly visualizes the data in a pie chart is attached.
 
 With a pie chart, it might be easier to see what are the major categories that nutch fails to fetch.
 
