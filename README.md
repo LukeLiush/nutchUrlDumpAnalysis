@@ -1,4 +1,5 @@
-# nutchUrlDumpAnalysis
+# Nutch URL Dump Analysis program
+==================
 
 The java program aims to extract the information from the Nutch url dump, and convert them form csv outputed from nutch to JSON format.
 and we simply count the number of occurances for each url category.
@@ -14,6 +15,7 @@ The java program read the nutch dump file produced in CSV format, and compute th
 
 pass the dump file to the java program, the java program automatically compute the count of occurances for each categories and output them in json format. The following shows a snippet of the resultant json file.
 
+```json
 {
     "unfetched_categories": [
         {
@@ -34,6 +36,7 @@ pass the dump file to the java program, the java program automatically compute t
         ...
         ]
 }
+```
 Technically, 
 The java program extract the entries associated with "db_fetched" i.e. status code = 1, and there are two main types of urls 
 
