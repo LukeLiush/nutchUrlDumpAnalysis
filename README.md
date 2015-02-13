@@ -8,7 +8,7 @@ https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon/issues/1
 There are many urls crawled and that reference the pages dynamically generated, it is probably better we group those based on the portion that comes before the "?"; 
 The java program read the nutch dump file produced in CSV format, and compute the count of occurances for the url categories.
 
-##1st, generate the url dump file with the following cmd in the nutch machine.
+1st, generate the url dump file with the following cmd in the nutch machine.
 
 ./<nutch_home>/runtime/local/bin/nutch readdb [crawldb] -dump [output_path] -format csv 
 
@@ -37,7 +37,6 @@ pass the dump file to the java program, the java program automatically compute t
 Technically, 
 The java program extract the entries associated with "db_fetched" i.e. status code = 1, and there are two main types of urls 
 
-i.e.
 1) dynamic urls reference dynamic pages (those urls all have "?" inside them)
 The following is an example.
 http://gcmd.gsfc.nasa.gov/KeywordSearch/Home.do?Portal=amd_cl&MetadataType=0&lbnode=mdlb3
@@ -58,6 +57,7 @@ With a pie chart, it might be easier to see what are the major categories that n
 
 Notice, the program aims to analyse the unfetched urls in the dump.
 
+```sh
 How to Run:
 Java
 main: NutchDumpSummaryMain.class
@@ -65,8 +65,8 @@ main: NutchDumpSummaryMain.class
         #1: nutchCSVDumpPath: specifies the location of csv dump file
 		#2: summaryOutputPath: specifies the location of the json output file.
 Dependencies: Tika 1.6
-
-
+```
+```sh
 R
 Dependencies: library(rjson)
 main:processJson.R
@@ -76,7 +76,8 @@ main:processJson.R
         #1: file: indicate the location of the json file to be displayed in pie
         #2: countThreshold: control which categories need to be shown based on the count, if setting the threshold =3 (by default it is 10), those categories that do have a count of 10 will be shown in the pie. Usually there are lots of url that only have count 1 which make it difficult to show them all in the pie, it is sometimes better to visualize the the majority of the group that nutch fails to fetch.
         #3: main, this specifies the title or description of the pie.
-    
+```
+
 
 
 
