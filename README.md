@@ -1,6 +1,6 @@
 # Nutch URL Dump Analysis program
 ==================
-
+## Program Description
 The java program aims to extract the information from the Nutch url dump, and convert them form csv outputed from nutch to JSON format.
 and we simply count the number of occurances for each url category.
 note this program aims to provide the support to analyse the crawled data in the project NSF polar research.
