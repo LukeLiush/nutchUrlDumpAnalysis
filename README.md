@@ -40,13 +40,13 @@ pass the dump file to the java program, the java program automatically compute t
 Technically, 
 The java program extract the entries associated with "db_fetched" i.e. status code = 1, and there are two main types of urls 
 
-1) dynamic urls reference dynamic pages (those urls all have "?" inside them)
+###1) dynamic urls reference dynamic pages (those urls all have "?" inside them)
 The following is an example.
 http://gcmd.gsfc.nasa.gov/KeywordSearch/Home.do?Portal=amd_cl&MetadataType=0&lbnode=mdlb3
 The program groups and clusters by looking at the portion before the "?" and count those urls that have the same "url portion", the portion after "?" will be refered to as a application portion. The following is an example of the url portion which you will be seeing in the produced json.
 http://gcmd.gsfc.nasa.gov/KeywordSearch/Home.do? 
 
-2) static urls reference static pages (those urls that do not have "?")
+###2) static urls reference static pages (those urls that do not have "?")
 e.g. the following is an example.
 http://gcmd.gsfc.nasa.gov/KeywordSearch/ipy/images/header.gif
 For those urls, the program will take the portion before the last "/" as the url portion and group those that have the same url portion. e.g. the above url has the following url portion and count is computed based on those that have the same portion as follows.
